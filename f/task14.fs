@@ -77,8 +77,10 @@ let rec sort = function
         minVal :: sort (delete(minVal, xs))
 
 // 40.4
-let rec revrev xs =
-    let rec helper = function
-      | [] -> []
-      | h :: t -> (List.rev h) :: (helper t)
-    List.rev (helper xs)
+let rec revrev = function
+    | [] -> []
+    | xs ->
+        let rec helper = function
+          | [] -> []
+          | h :: t -> (List.rev h) :: (helper t)
+        List.rev (helper xs)
