@@ -55,11 +55,11 @@ let rec minus (xs1, xs2) =
 
 // 40.3.1
 let rec smallest = function
-    | [] -> 999999
-    | h :: t when t = [] -> h
+    | [] -> None
+    | h :: t when t = [] -> Some(h)
     | h :: t ->
-        let other = smallest t
-        if h > other then other else h
+        let other = Option.get(smallest t)
+        if h > other then Some(other) else Some(h)
 
 // 40.3.2
 let rec delete (n, xs) =
@@ -73,7 +73,7 @@ let rec delete (n, xs) =
 let rec sort = function
     | [] -> []
     | xs ->
-        let minVal = smallest xs
+        let minVal = Option.get(smallest xs)
         minVal :: sort (delete(minVal, xs))
 
 // 40.4
