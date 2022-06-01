@@ -1,13 +1,20 @@
 open System
 
-let rec factorial = function
-    | (n, p) when n < 2 -> p
-    | (n, p) -> factorial (n - 1, p * n)
-
 // 50.2.1
-let fac_seq = function
-    | n -> seq { for i in 1..(n + 1) do yield factorial (i - 1, 1) }
+let fac_seq =
+    let rec helper i res n =
+        match i with
+            | x when x = n -> seq {yield res}
+            | x -> seq { yield res; yield! (helper (x + 1) (res * (x + 1)) n ) }
+    helper 0 1
 
 // 50.2.2
-let seq_seq = function
-    | n -> seq { for i in 1..(n + 1) do yield (i / 2 * -1 * (if i % 2 = 1 then -1 else 1)) }
+let seq_seq =
+    let rec helper i n =
+        match i with
+            | x when x = n -> seq {yield ((x + 1) / 2 * -1 * (if x % 2 = 0 then -1 else 1))}
+            | x -> seq {
+                yield ((x + 1) / 2 * -1 * (if x % 2 = 0 then -1 else 1))
+                yield! (helper (x + 1) n) 
+            }
+    helper 0
