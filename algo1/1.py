@@ -50,7 +50,8 @@ class LinkedList:
             node = node.next
         if node == self.tail:
             self.tail = prev
-            self.tail.next = None
+            if self.tail:
+                self.tail.next = None
         if node == self.head:
             self.head = self.head.next
         if prev and node:
