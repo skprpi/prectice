@@ -87,7 +87,7 @@ class Deque:
         return None
 
     def removeTail(self):
-        tmp = self.lst.delete_last().value
+        tmp = self.lst.delete_last()
         if tmp is not None:
             return tmp.value
         return None
