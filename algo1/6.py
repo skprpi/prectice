@@ -81,10 +81,16 @@ class Deque:
         self.lst.add_in_tail(Node(item))
 
     def removeFront(self):
-        return self.lst.delete_first()
+        tmp = self.lst.delete_first()
+        if tmp is not None:
+            return tmp.value
+        return None
 
     def removeTail(self):
-        return self.lst.delete_last()
+        tmp = self.lst.delete_last().value
+        if tmp is not None:
+            return tmp.value
+        return None
 
     def size(self):
         return self.lst.len()
