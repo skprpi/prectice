@@ -88,8 +88,8 @@ class OrderedList:
                 self.head.prev = None
             deleted = True
         if not deleted:
-            tmp1 = self.node.prev
-            tmp2 = self.node.next
+            tmp1 = node.prev
+            tmp2 = node.next
             tmp1.next = tmp2
             tmp2.prev = tmp1
         self.size -= 1
