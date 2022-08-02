@@ -1,25 +1,25 @@
 class LinkedList:
 
-    HEAD_OK = 1
+    HEAD_OK = 1 # успешный вызов head()
     HEAD_ERR = 2 # список пуст
 
-    TAIL_OK = 1
+    TAIL_OK = 1 # успешный вызов tail()
     TAIL_ERR = 2 # список пуст
 
-    RIGHT_OK = 1
+    RIGHT_OK = 1 # успешный вызов right()
     RIGHT_ERR_EMPTY_LIST = 2 # список пуст
     RIGHT_ERR_LAST_ELEMENT = 3 # указатель стоит на последнем элементе
 
-    REMOVE_OK = 1
+    REMOVE_OK = 1 # успешный вызов remove()
     REMOVE_ERR = 2 # курсор указывает на пустой элемент
 
-    REPLACE_OK = 1
+    REPLACE_OK = 1 # успешный вызов replace()
     REPLACE_ERR = 2 # курсор указывает на пустой элемент
 
-    FIND_OK = 1
+    FIND_OK = 1 # успешный вызов find()
     FIND_ERR = 2 # элемент не найден и курсор указывает на пустой элемент
 
-    GET_OK = 1
+    GET_OK = 1 # успешный вызов get()
     GET_ERR = 2 # курсор указывает на пустой элемент
 
 
